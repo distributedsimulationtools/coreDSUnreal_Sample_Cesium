@@ -1,0 +1,168 @@
+{
+   "ConfigType" : 0,
+   "DISConfig" : {
+      "AutomaticEntityStateUpdateManagement" : true,
+      "DISAppNumber" : 3001,
+      "DISDestinationAddress" : "0.0.0.255",
+      "DISDisVer" : 5,
+      "DISEnableExpertMode" : false,
+      "DISExerciseID" : 1,
+      "DISJoinMulticastGroup" : false,
+      "DISMulticastAddress" : "224.0.0.1",
+      "DISNIA" : "0.0.0.0",
+      "DISPort" : 3000,
+      "DISRcvBuffSize" : 2048,
+      "DISSiteNumber" : 1,
+      "DISUseAsyncIO" : false,
+      "EntityStatePDUUpdateFrequency" : 5,
+      "KeepAliveTimeout" : 5,
+      "SendCompleteEntityStatePDUPeriodically" : false,
+      "UseESUForKeepAlive" : false
+   },
+   "Federate" : {
+      "CallbackReportingLevel" : 1,
+      "CallbacksToLog" : false,
+      "CreateFederationExecution" : true,
+      "DeleteFederationExecution" : true,
+      "DiscoverEverything" : false,
+      "EnableAsynchronousDelivery" : false,
+      "EnableProvideAttributeValues" : false,
+      "EnableSynchronization" : false,
+      "EnableTimeConstrained" : false,
+      "EnableTimeRegulation" : false,
+      "FOMFileList" : [
+         "C:\\code\\ds.tools_git\\Github Public Samples\\coreDSUnreal_Sample_Cesium\\Content\\coreDS\\RPR_v2.0.xml"
+      ],
+      "FederateName" : "TestFederation",
+      "FederateType" : "Viewer",
+      "FederationName" : "Viewer",
+      "HLACallbackDeliveryMecanism" : "HLA_EVOKED",
+      "LogToFile" : {
+         "Destination" : "",
+         "Enabled" : 0,
+         "Filter" : "%Severity% >= error",
+         "MaxVerbose" : "%Severity% >= error"
+      },
+      "LogicalTimeImplementationName" : "Double",
+      "LookAhead" : 0.10,
+      "MIMmodule" : "",
+      "MaximumCallbackTime" : 0.10,
+      "MinimumCallbackTime" : 0.0,
+      "ObjectSubcribeList" : [
+         {
+            "Attributes" : [ "Spatial", "EntityType" ],
+            "Object" : "HLAobjectRoot.BaseEntity.PhysicalEntity"
+         }
+      ],
+      "OptionalFOMFileList" : null,
+      "RegisterSynchronizationPoint" : false,
+      "RequestAttributeValuesUpdate" : true,
+      "ResignAction" : "Delete Objects",
+      "StartAtGALT" : false,
+      "SynchronizationPointName" : "SyncPoint",
+      "TimeStep" : 1.0
+   },
+   "Metadata" : {
+      "FedInfoAppDom" : "",
+      "FedInfoMOMVer" : "",
+      "FedInfoModDate" : "",
+      "FedInfoName" : "",
+      "FedInfoPurposes" : "",
+      "FedInfoSponsor" : "",
+      "FedInfoType" : "",
+      "FedInfoVersion" : "",
+      "POCEmail" : "",
+      "POCFirstName" : "",
+      "POCHonorName" : "",
+      "POCLastName" : "",
+      "POCOrganisationName" : "",
+      "POCPhoneNumber" : ""
+   },
+   "ObjectLinkSimLocalIn" : [
+      {
+         "HLAobjectRoot.BaseEntity.PhysicalEntity" : [ "AutomaticMode" ]
+      }
+   ],
+   "ObjectMappingIn" : [
+      {
+         "HLAobjectRoot.BaseEntity.PhysicalEntity" : [
+            {
+               "HLAobjectRoot.BaseEntity.PhysicalEntity" : "AutomaticMode"
+            },
+            {
+               "EntityType" : [
+                  {
+                     "On Data Received" : "UseEntityTypeAsUniqueIdentifier.lua"
+                  }
+               ]
+            },
+            {
+               "HLAobjectRoot.BaseEntity.PhysicalEntity" : "AutomaticMode"
+            },
+            {
+               "Spatial" : [
+                  {
+                     "AccelerationVector.XAcceleration" : "DR_LinearAccelerationX"
+                  },
+                  {
+                     "AccelerationVector.YAcceleration" : "DR_LinearAccelerationY"
+                  },
+                  {
+                     "AccelerationVector.ZAcceleration" : "DR_LinearAccelerationZ"
+                  },
+                  {
+                     "AngularVelocity.XAngularVelocity" : "DR_AngularVelocityX"
+                  },
+                  {
+                     "AngularVelocity.YAngularVelocity" : "DR_AngularVelocityY"
+                  },
+                  {
+                     "AngularVelocity.ZAngularVelocity" : "DR_AngularVelocityZ"
+                  },
+                  {
+                     "DeadReckoningAlgorithm" : "DR_Mode"
+                  },
+                  {
+                     "Orientation.Phi" : "Orientation.phi"
+                  },
+                  {
+                     "Orientation.Psi" : "Orientation.psi"
+                  },
+                  {
+                     "Orientation.Theta" : "Orientation.theta"
+                  },
+                  {
+                     "VelocityVector.XVelocity" : "DR_LinearVelocityX"
+                  },
+                  {
+                     "VelocityVector.YVelocity" : "DR_LinearVelocityY"
+                  },
+                  {
+                     "VelocityVector.ZVelocity" : "DR_LinearVelocityZ"
+                  },
+                  {
+                     "WorldLocation.X" : "Location.X"
+                  },
+                  {
+                     "WorldLocation.Y" : "Location.Y"
+                  },
+                  {
+                     "WorldLocation.Z" : "Location.Z"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "RTIConfiguration" : {
+      "Compiler" : "VC142",
+      "DLLName" : "DLC_1516e_VC142_x64.dll",
+      "LocalDesignatorsExtra" : "",
+      "Manufacturer" : "DLC",
+      "OverEncDecFOM" : "",
+      "RTILibPath" : "",
+      "Standard" : "1516e",
+      "SystemVariables" : null
+   },
+   "Version" : "3.0.260-dev"
+}
