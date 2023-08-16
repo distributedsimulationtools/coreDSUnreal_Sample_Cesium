@@ -15,7 +15,7 @@
       "DISSiteNumber" : 1,
       "DISUseAsyncIO" : false,
       "EntityStatePDUUpdateFrequency" : 1,
-      "KeepAliveTimeout" : 5,
+      "KeepAliveTimeout" : 10,
       "SendCompleteEntityStatePDUPeriodically" : true,
       "UseESUForKeepAlive" : true
    },
@@ -31,7 +31,7 @@
       "EnableTimeConstrained" : false,
       "EnableTimeRegulation" : false,
       "FOMFileList" : [
-         "C:\\code\\ds.tools_git\\Github Public Samples\\coreDSUnreal_Cesium\\Plugins\\Binaries\\Win64\\\\DIS_V5_IEEE_1278.1-1995.xml"
+         "DIS_V5_IEEE_1278.1-1995.xml"
       ],
       "FederateName" : "",
       "FederateType" : "",
