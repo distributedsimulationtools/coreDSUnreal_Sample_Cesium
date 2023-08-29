@@ -3,13 +3,13 @@
    "DISConfig" : {
       "AutomaticEntityStateUpdateManagement" : true,
       "DISAppNumber" : 3001,
-      "DISDestinationAddress" : "192.168.1.255",
+      "DISDestinationAddress" : "192.168.2.255",
       "DISDisVer" : 5,
       "DISEnableExpertMode" : false,
       "DISExerciseID" : 1,
       "DISJoinMulticastGroup" : false,
       "DISMulticastAddress" : "0.0.0.0",
-      "DISNIA" : "192.168.1.66",
+      "DISNIA" : "192.168.2.22",
       "DISPort" : 3000,
       "DISRcvBuffSize" : 2048,
       "DISSiteNumber" : 1,
@@ -117,9 +117,24 @@
          "DISobject.Entity State" : [ "AutomaticMode" ]
       }
    ],
+   "ObjectLinkSimLocalOut" : [
+      {
+         "LocalObject" : "DISobject.Entity State"
+      }
+   ],
    "ObjectMappingIn" : [
       {
          "DISobject.Entity State" : [
+            {
+               "DISobject.Entity State" : "AutomaticMode"
+            },
+            {
+               "Appearance" : [
+                  {
+                     "Appearance" : "Appearance"
+                  }
+               ]
+            },
             {
                "DISobject.Entity State" : "AutomaticMode"
             },
@@ -213,6 +228,236 @@
                   },
                   {
                      "Theta" : "Orientation.theta"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "AutomaticMode"
+            },
+            {
+               "VariableParameters" : [
+                  {
+                     "VariableParameters" : "ArticulatedParts"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "ObjectMappingOut" : [
+      {
+         "LocalObject" : [
+            {
+               "LocalObject" : "DISobject.Entity State"
+            },
+            {
+               "AlternativeEntityType" : [
+                  {
+                     "Category" : 0
+                  },
+                  {
+                     "CountryCode" : 1
+                  },
+                  {
+                     "Domain" : 1
+                  },
+                  {
+                     "EntityKind" : 1
+                  },
+                  {
+                     "Extra" : 0
+                  },
+                  {
+                     "Specific" : 0
+                  },
+                  {
+                     "Subcategory" : 0
+                  }
+               ]
+            },
+            {
+               "LocalObject" : "DISobject.Entity State"
+            },
+            {
+               "Appearance" : [
+                  {
+                     "Appearance" : 0
+                  }
+               ]
+            },
+            {
+               "LocalObject" : "DISobject.Entity State"
+            },
+            {
+               "Capabilities" : [
+                  {
+                     "Capabilities" : 0
+                  }
+               ]
+            },
+            {
+               "LocalObject" : "DISobject.Entity State"
+            },
+            {
+               "DeadReckoning" : [
+                  {
+                     "AngularVelocity.XAngularVelocity" : 0.0
+                  },
+                  {
+                     "AngularVelocity.YAngularVelocity" : 0.0
+                  },
+                  {
+                     "AngularVelocity.ZAngularVelocity" : 0.0
+                  },
+                  {
+                     "DeadReckoningAlgorithm" : 0
+                  },
+                  {
+                     "LinearVelocity.LinearAccelerationX" : 0.0
+                  },
+                  {
+                     "LinearVelocity.LinearAccelerationY" : 0.0
+                  },
+                  {
+                     "LinearVelocity.LinearAccelerationZ" : 0.0
+                  },
+                  {
+                     "OtherParameters" : "0"
+                  }
+               ]
+            },
+            {
+               "LocalObject" : "DISobject.Entity State"
+            },
+            {
+               "EntityID" : [
+                  {
+                     "EntityIdentify" : "Automatic Generated Object ID"
+                  },
+                  {
+                     "SimulationAddress.ApplicationID" : "Configured Application Number"
+                  },
+                  {
+                     "SimulationAddress.SiteID" : "Configured Site Number"
+                  }
+               ]
+            },
+            {
+               "LocalObject" : "DISobject.Entity State"
+            },
+            {
+               "EntityType" : [
+                  {
+                     "Category" : 0
+                  },
+                  {
+                     "CountryCode" : 1
+                  },
+                  {
+                     "Domain" : 1
+                  },
+                  {
+                     "EntityKind" : 1
+                  },
+                  {
+                     "Extra" : 0
+                  },
+                  {
+                     "Specific" : 0
+                  },
+                  {
+                     "Subcategory" : 0
+                  }
+               ]
+            },
+            {
+               "LocalObject" : "DISobject.Entity State"
+            },
+            {
+               "ForceID" : [
+                  {
+                     "ForceID" : 1
+                  }
+               ]
+            },
+            {
+               "LocalObject" : "DISobject.Entity State"
+            },
+            {
+               "LinearVelocity" : [
+                  {
+                     "XVelocity" : 0.0
+                  },
+                  {
+                     "YVelocity" : 0.0
+                  },
+                  {
+                     "ZVelocity" : 0.0
+                  }
+               ]
+            },
+            {
+               "LocalObject" : "DISobject.Entity State"
+            },
+            {
+               "LocationInWorldCoordinates" : [
+                  {
+                     "X" : "Location.X"
+                  },
+                  {
+                     "Y" : "Location.Y"
+                  },
+                  {
+                     "Z" : "Location.Z"
+                  }
+               ]
+            },
+            {
+               "LocalObject" : "DISobject.Entity State"
+            },
+            {
+               "Marking" : [
+                  {
+                     "MarkingData" : "UnrealObj"
+                  },
+                  {
+                     "MarkingEncodingType" : 1
+                  }
+               ]
+            },
+            {
+               "LocalObject" : "DISobject.Entity State"
+            },
+            {
+               "NumberOfVariableParameters" : [
+                  {
+                     "NumberOfVariableParameters" : 0
+                  }
+               ]
+            },
+            {
+               "LocalObject" : "DISobject.Entity State"
+            },
+            {
+               "Orientation" : [
+                  {
+                     "Phi" : "Orientation.phi"
+                  },
+                  {
+                     "Psi" : "Orientation.psi"
+                  },
+                  {
+                     "Theta" : "Orientation.theta"
+                  }
+               ]
+            },
+            {
+               "LocalObject" : "DISobject.Entity State"
+            },
+            {
+               "VariableParameters" : [
+                  {
+                     "VariableParameters" : "0"
                   }
                ]
             }
