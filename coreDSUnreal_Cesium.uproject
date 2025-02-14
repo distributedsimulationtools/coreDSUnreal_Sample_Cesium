@@ -24,5 +24,8 @@
 			"Name": "coreDSGeoReferencingSystemSupport",
 			"Enabled": false
 		}
+	],
+	"TargetPlatforms": [
+		"Windows"
 	]
 }
