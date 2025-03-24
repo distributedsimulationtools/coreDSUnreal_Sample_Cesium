@@ -9,17 +9,21 @@
       "DISExerciseID" : 1,
       "DISJoinMulticastGroup" : false,
       "DISMulticastAddress" : "0.0.0.0",
-      "DISNIA" : "192.168.2.22",
+      "DISNIA" : "192.168.2.40",
       "DISPort" : 3000,
       "DISRcvBuffSize" : 2048,
       "DISSiteNumber" : 1,
+      "DISTimeStampFormat" : 0,
       "DISUseAsyncIO" : false,
+      "DropOutofSequencePacketAbsolute" : false,
+      "DropOutofSequencePacketEntity" : false,
       "EntityStatePDUUpdateFrequency" : 1,
       "KeepAliveTimeout" : 10,
       "SendCompleteEntityStatePDUPeriodically" : true,
       "UseESUForKeepAlive" : true
    },
    "Federate" : {
+      "AutoAchieveSyncPoints" : false,
       "CallbackReportingLevel" : 1,
       "CallbacksToLog" : false,
       "CreateFederationExecution" : true,
@@ -31,7 +35,7 @@
       "EnableTimeConstrained" : false,
       "EnableTimeRegulation" : false,
       "FOMFileList" : [
-         "DIS_V5_IEEE_1278.1-1995.xml"
+         "C:\\code\\ds.tools_git\\coreDSUnreal\\Samples\\coreDSUnreal_Sample_Cesium\\Plugins\\coreDSModule\\ThirdParty\\coreDS\\bin\\VC143\\x64\\Release\\DIS_V5_IEEE_1278.1-1995.xml"
       ],
       "FederateName" : "",
       "FederateType" : "",
@@ -39,7 +43,7 @@
       "HLACallbackDeliveryMecanism" : "HLA_EVOKED",
       "LogToFile" : {
          "Destination" : "",
-         "Enabled" : 0,
+         "Enabled" : false,
          "Filter" : "%Severity% >= error",
          "MaxVerbose" : "%Severity% >= error"
       },
@@ -466,7 +470,7 @@
    ],
    "RTIConfiguration" : {
       "Compiler" : "DLC",
-      "DLLName" : "DLC_DIS-V5.dll",
+      "DLLName" : "DLC_DIS-V5",
       "LocalDesignatorsExtra" : "",
       "Manufacturer" : "",
       "OverEncDecFOM" : "",
@@ -474,5 +478,5 @@
       "Standard" : "DIS V5",
       "SystemVariables" : null
    },
-   "Version" : "3.0.260-dev"
+   "Version" : "3.0.512-dev"
 }
