@@ -1,0 +1,91 @@
+{
+   "$schema": "https://ds.tools/schemas/coreDS/config-4.schema.json",
+   "formatVersion": 4,
+   "generator": "coreDS 4.0.926.0",
+   "name": "DIS 7 - Cesium viewer",
+   "description": "Receives the Entity State PDUs (IEEE 1278.1-2012) and shows each entity on the Cesium globe through the Automatic Mode.",
+   "connection": {
+      "protocol": "DIS",
+      "connector": {
+         "compiler": "DLC",
+         "library": "DLC_DIS-V7",
+         "standard": "DIS V7"
+      },
+      "model": {
+         "fom": [ "DIS_V7_IEEE_1278.1-2012.xml" ]
+      },
+      "dis": {
+         "version": 7,
+         "networkInterface": "0.0.0.0",
+         "port": 3000,
+         "destinationAddress": "255.255.255.255",
+         "joinMulticastGroup": false,
+         "multicastAddress": "0.0.0.0",
+         "exerciseId": 1,
+         "filterExercise": false,
+         "siteId": 1,
+         "applicationId": 3001,
+         "timestampFormat": 0,
+         "receiveBufferSize": 8192,
+         "expertMode": false,
+         "asyncIO": false,
+         "automaticEntityStateUpdate": true,
+         "dropOutOfSequence": {
+            "absolute": false,
+            "perEntity": false
+         },
+         "keepAlive": {
+            "interval": 5,
+            "timeout": 12
+         }
+      },
+      "callbacks": {
+         "delivery": "HLA_EVOKED",
+         "log": false,
+         "maximumTime": 0.1,
+         "minimumTime": 0.0,
+         "reportingLevel": 1
+      }
+   },
+   "mappings": [
+      {
+         "id": "AutomaticMode-from-DISobject.Entity_State",
+         "description": "Every received entity is spawned by the Automatic Mode. The Entity State Update PDUs of a known entity update it too.",
+         "direction": "in",
+         "kind": "object",
+         "remote": "DISobject.Entity State",
+         "local": "AutomaticMode",
+         "fields": [
+            { "remote": "EntityType", "hooks": { "onUpdate": "UseEntityTypeAsUniqueIdentifier.lua" } },
+            { "remote": "LocationInWorldCoordinates.X", "local": "Location.X" },
+            { "remote": "LocationInWorldCoordinates.Y", "local": "Location.Y" },
+            { "remote": "LocationInWorldCoordinates.Z", "local": "Location.Z" },
+            { "remote": "Orientation.Psi", "local": "Orientation.psi" },
+            { "remote": "Orientation.Theta", "local": "Orientation.theta" },
+            { "remote": "Orientation.Phi", "local": "Orientation.phi" },
+            { "remote": "Marking.MarkingData", "local": "ActorName" },
+            { "remote": "Appearance", "local": "Appearance" },
+            { "remote": "NumberOfVariableParameters", "local": "NumberOfParts" },
+            { "remote": "VariableParameters", "local": "ArticulatedParts" },
+            { "remote": "LinearVelocity.XVelocity", "local": "DR_LinearVelocityX" },
+            { "remote": "LinearVelocity.YVelocity", "local": "DR_LinearVelocityY" },
+            { "remote": "LinearVelocity.ZVelocity", "local": "DR_LinearVelocityZ" },
+            { "remote": "DeadReckoning.DeadReckoningAlgorithm", "local": "DR_Mode" },
+            { "remote": "DeadReckoning.LinearVelocity.LinearAccelerationX", "local": "DR_LinearAccelerationX" },
+            { "remote": "DeadReckoning.LinearVelocity.LinearAccelerationY", "local": "DR_LinearAccelerationY" },
+            { "remote": "DeadReckoning.LinearVelocity.LinearAccelerationZ", "local": "DR_LinearAccelerationZ" },
+            { "remote": "DeadReckoning.AngularVelocity.XAngularVelocity", "local": "DR_AngularVelocityX" },
+            { "remote": "DeadReckoning.AngularVelocity.YAngularVelocity", "local": "DR_AngularVelocityY" },
+            { "remote": "DeadReckoning.AngularVelocity.ZAngularVelocity", "local": "DR_AngularVelocityZ" }
+         ]
+      }
+   ],
+   "options": {
+      "LogToFile": {
+         "Destination": "",
+         "Enabled": false,
+         "Filter": "%Severity% >= error",
+         "MaxVerbose": "%Severity% >= error"
+      }
+   }
+}

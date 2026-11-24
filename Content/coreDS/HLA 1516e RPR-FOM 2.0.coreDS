@@ -1,0 +1,90 @@
+{
+   "$schema": "https://ds.tools/schemas/coreDS/config-4.schema.json",
+   "formatVersion": 4,
+   "generator": "coreDS 4.0.926.0",
+   "name": "HLA 1516e RPR FOM 2.0 - Cesium viewer",
+   "description": "Joins an HLA 1516e federation with the RPR FOM 2.0, subscribes to the PhysicalEntity objects and shows each one on the Cesium globe through the Automatic Mode.",
+   "connection": {
+      "protocol": "HLA",
+      "connector": {
+         "compiler": "VC142",
+         "library": "DLC_1516e_VC142_x64",
+         "standard": "1516e",
+         "vendor": "DLC"
+      },
+      "model": {
+         "fom": [ "RPR_FOM_v2.0_1516-2010.xml" ]
+      },
+      "hla": {
+         "federation": "RPRFederation",
+         "federate": "coreDSUnreal_Cesium",
+         "federateType": "Viewer",
+         "createFederation": true,
+         "deleteFederation": true,
+         "resignAction": "Delete Objects",
+         "provideAttributeValues": false,
+         "requestAttributeValueUpdate": true,
+         "sync": {
+            "enabled": false,
+            "pointName": "SyncPoint",
+            "register": false,
+            "autoAchieve": false
+         },
+         "time": {
+            "implementation": "Double",
+            "regulating": false,
+            "constrained": false,
+            "asynchronousDelivery": false,
+            "lookahead": 0.1,
+            "step": 1.0,
+            "startAtGALT": false
+         }
+      },
+      "callbacks": {
+         "delivery": "HLA_EVOKED",
+         "log": false,
+         "maximumTime": 0.1,
+         "minimumTime": 0.0,
+         "reportingLevel": 1
+      }
+   },
+   "mappings": [
+      {
+         "id": "AutomaticMode-from-HLAobjectRoot.BaseEntity.PhysicalEntity",
+         "description": "Every discovered PhysicalEntity, or subclass of it (Aircraft, GroundVehicle, Lifeform...), is spawned by the Automatic Mode.",
+         "direction": "in",
+         "kind": "object",
+         "remote": "HLAobjectRoot.BaseEntity.PhysicalEntity",
+         "local": "AutomaticMode",
+         "attributes": [ "EntityType", "Spatial", "Marking" ],
+         "fields": [
+            { "remote": "EntityType", "hooks": { "onUpdate": "UseEntityTypeAsUniqueIdentifier.lua" } },
+            { "remote": "Spatial.WorldLocation.X", "local": "Location.X" },
+            { "remote": "Spatial.WorldLocation.Y", "local": "Location.Y" },
+            { "remote": "Spatial.WorldLocation.Z", "local": "Location.Z" },
+            { "remote": "Spatial.Orientation.Psi", "local": "Orientation.psi" },
+            { "remote": "Spatial.Orientation.Theta", "local": "Orientation.theta" },
+            { "remote": "Spatial.Orientation.Phi", "local": "Orientation.phi" },
+            { "remote": "Marking.MarkingData", "local": "ActorName" },
+            { "remote": "Spatial.DeadReckoningAlgorithm", "local": "DR_Mode" },
+            { "remote": "Spatial.VelocityVector.XVelocity", "local": "DR_LinearVelocityX" },
+            { "remote": "Spatial.VelocityVector.YVelocity", "local": "DR_LinearVelocityY" },
+            { "remote": "Spatial.VelocityVector.ZVelocity", "local": "DR_LinearVelocityZ" },
+            { "remote": "Spatial.AccelerationVector.XAcceleration", "local": "DR_LinearAccelerationX" },
+            { "remote": "Spatial.AccelerationVector.YAcceleration", "local": "DR_LinearAccelerationY" },
+            { "remote": "Spatial.AccelerationVector.ZAcceleration", "local": "DR_LinearAccelerationZ" },
+            { "remote": "Spatial.AngularVelocity.XAngularVelocity", "local": "DR_AngularVelocityX" },
+            { "remote": "Spatial.AngularVelocity.YAngularVelocity", "local": "DR_AngularVelocityY" },
+            { "remote": "Spatial.AngularVelocity.ZAngularVelocity", "local": "DR_AngularVelocityZ" }
+         ]
+      }
+   ],
+   "options": {
+      "LogToFile": {
+         "Destination": "",
+         "Enabled": false,
+         "Filter": "%Severity% >= error",
+         "MaxVerbose": "%Severity% >= error"
+      }
+   }
+}

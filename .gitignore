@@ -1,7 +1,30 @@
+# Unreal Engine build and cache folders
 Intermediate/
 Binaries/
-Plugins/
+DerivedDataCache/
 Saved/
-.vs/
+Plugins/
 Source/
-coreDSUnreal_Cesium.sln
+
+# Generated IDE files
+.vs/
+.vscode/
+.idea/
+*.sln
+.vsconfig
+.editorconfig
+
+# Per user content
+Content/Developers/
+Content/Collections/
+
+# Cesium for Unreal: the request cache, and the Cesium ion server asset, which holds the
+# access token of the user. Cesium creates the asset when the project is opened; each user
+# signs in to Cesium ion from the Cesium panel.
+cesium-request-cache.sqlite*
+Content/CesiumSettings/
+
+# coreDS: logs, private scripts and personal test configurations
+*.log
+Content/coreDS/Script_Priv/
+Content/coreDS/test*.coreDS
