@@ -109,13 +109,13 @@ You can open the configuration window either by running the game or from Tools >
 
 This sample comes with 2 preconfigured configurations, in ``Content/coreDS``. Both only receive: the sample displays the remote entities and publishes nothing.
 
-- ``DIS 7.coreDS``: DIS 7 (IEEE 1278.1-2012), with the object model ``DIS_V7_IEEE_1278.1-2012.xml``.
+- ``DIS 5.coreDS``: DIS 5 (IEEE 1278.1-1995), with the object model ``DIS_V5_IEEE_1278.1-1995.xml``.
 - ``HLA 1516e RPR-FOM 2.0.coreDS``: HLA 1516e (IEEE 1516-2010) with the RPR FOM 2.0 (SISO-STD-001.1-2015), ``RPR_FOM_v2.0_1516-2010.xml``.
 
 .. image:: Doc/Images/ConfigurationSelection.png
    :alt: Configuration selection window
 
-The FOM files are given by their file name only, so the configurations work on any computer without changes: coreDS finds ``RPR_FOM_v2.0_1516-2010.xml`` next to the configuration, in ``Content/coreDS``, and ``DIS_V7_IEEE_1278.1-2012.xml`` in the folder of the coreDS libraries, where coreDS Unreal installs it.
+The FOM files are given by their file name only, so the configurations work on any computer without changes: coreDS finds ``RPR_FOM_v2.0_1516-2010.xml`` next to the configuration, in ``Content/coreDS``, and ``DIS_V5_IEEE_1278.1-1995.xml`` in the folder of the coreDS libraries, where coreDS Unreal installs it.
 
 Let's take a look at each configuration.
 
@@ -128,7 +128,9 @@ The network adapter is ``0.0.0.0``: the system chooses it, and the PDUs are rece
 
 The configuration window shows ``0.0.0.0`` in red, as an adapter not found on this computer: the window only knows the adapters it detected. coreDS accepts ``0.0.0.0`` and receives on every adapter. Selecting your adapter removes the warning.
 
-With DIS 7, an entity is discovered by its first Entity State PDU; its Entity State Update PDUs then update it through the same mapping.
+An entity is discovered by its first Entity State PDU; its next Entity State PDUs update it through the same mapping.
+
+All the coreDS Unreal samples can run at the same time and see each other's entities. Their DIS configurations are DIS 5 on port 3000, exercise 1, listen on every network adapter (``0.0.0.0``) and broadcast to ``255.255.255.255``; each sample has its own Application Number (Automatic Mode 3010, Model Integration 3020 and 3021, First Person Shooter 3030, C++ 3040, Cesium 3050), since two simulators with the same Site and Application Numbers get their entities mixed up. Their HLA configurations join the ``coreDSUnreal`` federation with the RPR FOM 2.0 through the DLC (Dynamic Link Compatible) 1516e plugin, each with its own federate name.
 
 .. image:: Doc/Images/DISConnectionConfiguration.png
    :alt: DIS connection configuration
@@ -181,7 +183,7 @@ In this sample, we subscribe to the EntityType, Spatial and Marking attributes o
 Federate Parameters
 ~~~~~~~~~~~~~~~~~~~
 
-The Federate Parameters pane contains all the information required to create, join and configure a connection to the RTI, including the FOM file, ``RPR_FOM_v2.0_1516-2010.xml``. The federation is ``RPRFederation``: change it to the name of the federation you join.
+The Federate Parameters pane contains all the information required to create, join and configure a connection to the RTI, including the FOM file, ``RPR_FOM_v2.0_1516-2010.xml``. The federation is ``coreDSUnreal``, the one all the coreDS Unreal samples join: change it to the name of the federation you join.
 
 .. image:: Doc/Images/HLAFederateSettings.png
    :alt: HLA federate parameters

@@ -2,20 +2,20 @@
    "$schema": "https://ds.tools/schemas/coreDS/config-4.schema.json",
    "formatVersion": 4,
    "generator": "coreDS 4.0.926.0",
-   "name": "DIS 7 - Cesium viewer",
-   "description": "Receives the Entity State PDUs (IEEE 1278.1-2012) and shows each entity on the Cesium globe through the Automatic Mode.",
+   "name": "DIS 5 - Cesium viewer",
+   "description": "Receives the Entity State PDUs (IEEE 1278.1-1995) and shows each entity on the Cesium globe through the Automatic Mode.",
    "connection": {
       "protocol": "DIS",
       "connector": {
          "compiler": "DLC",
-         "library": "DLC_DIS-V7",
-         "standard": "DIS V7"
+         "library": "DLC_DIS-V5",
+         "standard": "DIS V5"
       },
       "model": {
-         "fom": [ "DIS_V7_IEEE_1278.1-2012.xml" ]
+         "fom": [ "DIS_V5_IEEE_1278.1-1995.xml" ]
       },
       "dis": {
-         "version": 7,
+         "version": 5,
          "networkInterface": "0.0.0.0",
          "port": 3000,
          "destinationAddress": "255.255.255.255",
@@ -24,7 +24,7 @@
          "exerciseId": 1,
          "filterExercise": false,
          "siteId": 1,
-         "applicationId": 3001,
+         "applicationId": 3050,
          "timestampFormat": 0,
          "receiveBufferSize": 8192,
          "expertMode": false,

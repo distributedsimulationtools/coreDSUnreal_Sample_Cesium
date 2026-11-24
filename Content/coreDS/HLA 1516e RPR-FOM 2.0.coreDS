@@ -16,7 +16,7 @@
          "fom": [ "RPR_FOM_v2.0_1516-2010.xml" ]
       },
       "hla": {
-         "federation": "RPRFederation",
+         "federation": "coreDSUnreal",
          "federate": "coreDSUnreal_Cesium",
          "federateType": "Viewer",
          "createFederation": true,
